@@ -1,0 +1,48 @@
+---
+title: "week 5"
+author: "emmanuel owireku addo"
+date: '2022-06-24'
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+```{r,include=FALSE}
+#install.packages("tidyverse")
+library(tidyverse)
+```
+
+
+
+```{r,include=TRUE}
+url <- "https://raw.githubusercontent.com/fivethirtyeight/data/master/police-killings/police_killings.csv"
+need <- read.csv(url)
+#head(need,2)
+```
+
+
+#let is find  the relationship between raceethnicity and gender using maping  
+```{r,include=TRUE}
+ggplot( data = need) + 
+  geom_point(mapping = aes(x = gender, y =raceethnicity))
+
+```
+
+#let us find the gender diffence in count that shows police killing between males and females 
+```{r,include=TRUE}
+ggplot(data = need) + 
+  geom_bar(mapping = aes(x = gender))
+```
+#let us find police killing in  each state with their count in household income 
+```{r,include=TRUE}
+ggplot(data = need) + 
+  geom_bar(mapping = aes(x = state, fill =h_income))
+```
+#finding the age range of individuals killed by police in 2015 with what the possesed as threat (being armed or not)
+```{r,include=TRUE}
+ggplot(data = need) + 
+  geom_point(mapping = aes(x = armed, y = age))
+```
+
+
+
